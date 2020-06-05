@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import { intro } from "../../data";
+import { useHistory } from "react-router-dom";
+import { intro } from "../../util/data";
 import { motion } from "framer-motion";
 export default function Intro() {
   const history = useHistory();
@@ -10,13 +10,13 @@ export default function Intro() {
         <motion.img
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1, transition: { delay: 1 } }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0, transition: { delay: 0 } }}
           src={intro.image}
         ></motion.img>
         <motion.h1
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0, transition: { delay: 0 } }}
         >
           {intro.headline}
         </motion.h1>
@@ -28,7 +28,7 @@ export default function Intro() {
           dangerouslySetInnerHTML={{ __html: intro.text }}
         ></motion.div>
         <motion.div
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0, transition: { delay: 0 } }}
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}

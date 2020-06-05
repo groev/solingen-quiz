@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function QuestionView({ data, answerQuestion, error }) {
+export default function QuestionView({ data, answerQuestion, error, Counter }) {
   useEffect(() => {
     new Image().src = data.image;
   }, [data.image]);
@@ -15,6 +15,7 @@ export default function QuestionView({ data, answerQuestion, error }) {
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.3,
+        delayChildren: 0.3,
       },
     },
     hidden: {
@@ -35,7 +36,10 @@ export default function QuestionView({ data, answerQuestion, error }) {
     <div id="QuestionView" className="container">
       <div className="inner">
         <div className="question">
+          <Counter />
           <motion.h1
+            transition={{ delay: 0.5 }}
+            exit={{ y: -100, opacity: 0 }}
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
           >

@@ -1,3 +1,17 @@
+import wappen from "../assets/images/Solingen_wappen.svg";
+const intro = {
+  image: wappen,
+  headline: "Was weisst du über die Klingenstadt?",
+  text:
+    "Komm mit auf eine Reise durch die Geschichte der Klingenstadt. Lerne etwas neues und lass dich überraschen.",
+};
+
+const outro = {
+  headline: "Das war's!",
+  text:
+    "Toll, dass du alle Fragen beantwortet hast. Wir hoffen, dass du etwas neues lernen konntest und Spaß hattest.",
+};
+
 const questions = [
   {
     id: 1,
@@ -71,4 +85,4 @@ const questions = [
       "https://upload.wikimedia.org/wikipedia/commons/d/d6/Windmuehle_Solingen_Theodor_Verhas_Henry_Winkles.jpg",
   },
 ];
-export default questions;
+export { intro, outro, questions };

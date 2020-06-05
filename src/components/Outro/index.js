@@ -1,5 +1,5 @@
 import React from "react";
-import { outro } from "../../data";
+import { outro } from "../../util/data";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 

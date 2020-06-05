@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { questions } from "../../data";
+import { questions } from "../../util/data";
+import { motion } from "framer-motion";
 import QuestionView from "./QuestionView";
 import SolutionView from "./SolutionView";
 
@@ -14,7 +15,23 @@ export default function Question() {
   useEffect(() => {
     setAnswered(false);
   }, [id]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id, answered]);
   const currentQuestion = questions[id - 1];
+
+  const Counter = () => {
+    return (
+      <motion.div
+        transition={{ delay: 0.5 }}
+        initial={{ opacity: 0 }}
+        exit={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        {id}/{questions.length}
+      </motion.div>
+    );
+  };
 
   function answerQuestion(answer) {
     if (!answer.text) {
@@ -40,11 +57,13 @@ export default function Question() {
       <SolutionView
         isCorrect={isCorrect}
         data={currentQuestion}
+        Counter={Counter}
         goToNextQuestion={goToNextQuestion}
       />
     );
   return (
     <QuestionView
+      Counter={Counter}
       error={error}
       data={currentQuestion}
       answerQuestion={answerQuestion}
