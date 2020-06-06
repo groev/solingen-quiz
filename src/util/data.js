@@ -102,7 +102,7 @@ const questions = [
       { text: "8,9 °C", isCorrect: false },
     ],
     solution:
-      "Die Jahresdurchschnittstemperatur in Solingen beträgt 10,8 °C. Solingen gehört nach der Nachbarstadt Wuppertal zu den Städten in Deutschland mit den höchsten Niederschlagsmengen. Dies ist primär darin begründet, dass das Bergische Land von Nordwesten her die erste nennenswerte Erhebung darstellt, so dass sich Wolken vielfach anstauen.",
+      "Die Temperatur in Solingen beträgt 10,8 °C im Jahresdurchschnitt. Solingen gehört nach der Nachbarstadt Wuppertal zu den Städten in Deutschland mit den höchsten Niederschlagsmengen. Dies ist primär darin begründet, dass das Bergische Land von Nordwesten her die erste nennenswerte Erhebung darstellt, so dass sich Wolken vielfach anstauen.",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/2/26/M%C3%BCngsten-SG-002%2BRS-019-02.09.05_1.JPG",
   },
