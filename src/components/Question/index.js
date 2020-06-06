@@ -10,6 +10,7 @@ export default function Question() {
   const [answered, setAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [error, setError] = useState("");
+  const [correctCount, setCorrectCount] = useState(0);
 
   const { id } = useParams();
   useEffect(() => {
@@ -39,6 +40,12 @@ export default function Question() {
     } else {
       setError("");
       setIsCorrect(answer.isCorrect);
+      if (answer.isCorrect) {
+        localStorage.setItem(
+          "correct",
+          parseInt(localStorage.getItem("correct")) + 1
+        );
+      }
       setAnswered(true);
     }
   }

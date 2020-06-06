@@ -33,7 +33,10 @@ export default function Intro() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5 }}
           className="btn"
-          onClick={() => history.push("/frage/1")}
+          onClick={() => {
+            localStorage.setItem("correct", 0);
+            history.push("/frage/1");
+          }}
           to="/frage/1"
         >
           Jetzt starten
