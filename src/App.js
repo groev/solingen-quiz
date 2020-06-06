@@ -13,7 +13,7 @@ function App() {
           <Switch location={location} key={location.pathname}>
             <Route path="/frage/:id" component={Question} />
             <Route path="/abschluss" component={Outro} />
-            <Route path="/informationen" component={Info} />
+            {/* <Route path="/informationen" component={Info} /> */}
             <Route path="/impressum" component={Impressum} />
             <Route path="/" component={Intro} />
           </Switch>

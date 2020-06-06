@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
+import initReactFastclick from "react-fastclick";
+initReactFastclick();
 
 ReactDOM.render(
   <React.StrictMode>

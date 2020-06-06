@@ -40,14 +40,6 @@ export default function Layout({ children }) {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  onClick={() => setMenuVisible(false)}
-                  to="/informationen"
-                >
-                  Über diese Seite
-                </NavLink>
-              </li>
-              <li>
                 <NavLink onClick={() => setMenuVisible(false)} to="/impressum">
                   Impressum
                 </NavLink>

@@ -10,7 +10,6 @@ export default function Question() {
   const [answered, setAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [error, setError] = useState("");
-  const [correctCount, setCorrectCount] = useState(0);
 
   const { id } = useParams();
   useEffect(() => {
@@ -41,17 +40,14 @@ export default function Question() {
       setError("");
       setIsCorrect(answer.isCorrect);
       if (answer.isCorrect) {
-        localStorage.setItem(
-          "correct",
-          parseInt(localStorage.getItem("correct")) + 1
-        );
+        const newCount = parseInt(localStorage.getItem("correct")) + 1;
+        localStorage.setItem("correct", newCount);
       }
       setAnswered(true);
     }
   }
+
   function goToNextQuestion() {
-    console.log(questions.length);
-    console.log(id + 1);
     const nextQuestion = parseInt(id) + 1;
     if (nextQuestion > questions.length) {
       history.push("/abschluss");
