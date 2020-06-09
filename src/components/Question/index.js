@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { questions } from "../../util/data";
+import { useData } from "../../util/dataProvider";
 import { motion } from "framer-motion";
 import QuestionView from "./QuestionView";
 import SolutionView from "./SolutionView";
 
 export default function Question() {
+  const { questions, points, updatePoints } = useData();
   const history = useHistory();
   const [answered, setAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -40,8 +41,7 @@ export default function Question() {
       setError("");
       setIsCorrect(answer.isCorrect);
       if (answer.isCorrect) {
-        const newCount = parseInt(localStorage.getItem("correct")) + 1;
-        localStorage.setItem("correct", newCount);
+        updatePoints();
       }
       setAnswered(true);
     }
@@ -54,6 +54,9 @@ export default function Question() {
     } else {
       history.push("/frage/" + nextQuestion);
     }
+  }
+  if (!currentQuestion) {
+    return <div className="container">Frage nicht gefunden.</div>;
   }
   if (answered)
     return (

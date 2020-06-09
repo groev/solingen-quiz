@@ -1,8 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { intro } from "../../util/data";
+import { useData } from "../../util/dataProvider";
 import { motion } from "framer-motion";
 export default function Intro() {
+  const { intro, resetPoints } = useData();
   const history = useHistory();
   return (
     <div className="container" id="Intro">
@@ -34,12 +35,12 @@ export default function Intro() {
           transition={{ delay: 0.5 }}
           className="btn"
           onClick={() => {
-            localStorage.setItem("correct", 0);
+            resetPoints();
             history.push("/frage/1");
           }}
           to="/frage/1"
         >
-          Jetzt starten
+          {intro.buttonlabel}
         </motion.div>
       </div>
     </div>

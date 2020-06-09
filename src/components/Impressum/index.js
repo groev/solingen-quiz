@@ -1,7 +1,9 @@
 import React from "react";
+import { useData } from "../../util/dataProvider";
 import { motion } from "framer-motion";
 
 export default function Impressum() {
+  const { impressum } = useData();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -9,14 +11,10 @@ export default function Impressum() {
       exit={{ opacity: 0 }}
       className="container"
     >
-      <div className="inner">
-        <h1>Impressum</h1>
-        <div>
-          Magnus Westhofen
-          <br /> Turner Straße 41
-          <br /> 42699 Solingen
-        </div>
-      </div>
+      <div
+        className="inner"
+        dangerouslySetInnerHTML={{ __html: impressum }}
+      ></div>
     </motion.div>
   );
 }

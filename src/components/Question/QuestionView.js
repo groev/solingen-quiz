@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 
 export default function QuestionView({ data, answerQuestion, error, Counter }) {
   useEffect(() => {
-    new Image().src = data.image;
-  }, [data.image]);
+    if (data) {
+      new Image().src = data.image;
+    }
+  }, [data]);
   const [selectedAnswer, setSelectedAnswer] = useState({});
   function selectAnswer(answer) {
     setSelectedAnswer(answer);
